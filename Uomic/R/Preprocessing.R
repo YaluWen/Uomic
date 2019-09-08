@@ -2,7 +2,7 @@
 #'
 #' @param Y The continuous or discrete outcomes for $n$ subjects.
 #' @param Omics A list with each element being a n by p matrix. If there is missing, then should be NA for the subject.
-#' @param X A matrix of demographic variables (e.g., age and gender). The default is NULL. 
+#' @param Xcov A matrix of demographic variables (e.g., age and gender). The default is NULL. 
 #' @param Kernel The method to calculate the pair-wise sample similarity matrix. It takes the method \code{AM}, \code{IBS}, \code{Lin0}, 
 #' \code{Quad1},\code{Minkowski}, \code{Polyk}.Details can be found in \code{varComp}package.
 #' @param impute Whether to impute the missing values with the mean. Default is \code{TRUE}.
@@ -22,8 +22,8 @@ ComputeKs<-function(Omics,Y,Xcov=NULL,Kernel,c=0,d=2,impute=TRUE)
   n=length(Y);
   if(!is.null(Xcov))
   {
-    if(!is.null(dim(X))) {if(nrow(X)!=n) stop("The number of subjects for demographic variables and that of the outcomes are not the same")}
-    if(is.null(dim(X))) {if(length(X)!=n) stop("The number of subjects for demographic variables and that of the outcomes are not the same")}
+    if(!is.null(dim(Xcov))) {if(nrow(Xcov)!=n) stop("The number of subjects for demographic variables and that of the outcomes are not the same")}
+    if(is.null(dim(Xcov))) {if(length(Xcov)!=n) stop("The number of subjects for demographic variables and that of the outcomes are not the same")}
   }
   for(i in 1:length(Omics))
   {
