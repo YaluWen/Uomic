@@ -12,12 +12,12 @@ ComputeKs(Omics, Y, Xcov = NULL, Kernel, c = 0, d = 2,
 
 \item{Y}{The continuous or discrete outcomes for $n$ subjects.}
 
+\item{Xcov}{A matrix of demographic variables (e.g., age and gender). The default is NULL.}
+
 \item{Kernel}{The method to calculate the pair-wise sample similarity matrix. It takes the method \code{AM}, \code{IBS}, \code{Lin0}, 
 \code{Quad1},\code{Minkowski}, \code{Polyk}.Details can be found in \code{varComp}package.}
 
 \item{impute}{Whether to impute the missing values with the mean. Default is \code{TRUE}.}
-
-\item{X}{A matrix of demographic variables (e.g., age and gender). The default is NULL.}
 }
 \value{
 A list with the outcome vector \code{Y}, the demographic variable \code{X}, and the pair-wise similarities \code{Ks}
